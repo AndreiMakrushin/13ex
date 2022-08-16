@@ -23,15 +23,15 @@ const render = () => {
         }
         li.querySelector('.todo-complete').addEventListener('click', function(){
             item.completed = !item.completed
+            localStorage.setItem('todoData', JSON.stringify(todoData))
             render()
         })
         li.querySelector('.todo-remove').addEventListener('click', function(){
             todoData.splice(i, 1)
-            //localStorage.removeItem('todoData', JSON.stringify(todoData))
+            localStorage.setItem('todoData', JSON.stringify(todoData))
             render()
-        })   
+        })
     })
-    
 }
 if (localStorage.getItem('todoData')) { 
     todoData = JSON.parse(localStorage.getItem('todoData'));
